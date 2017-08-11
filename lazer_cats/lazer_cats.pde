@@ -8,6 +8,7 @@ int xLoc1 = 267;
 int yLoc1 = 221;
 
 PImage catPic;
+PImage facePic;
 
 int xLoc2 = 281; //281
 int yLoc2 = 220; //220
@@ -16,9 +17,19 @@ int yLoc2 = 220; //220
 void setup()
 {
   size(500, 500);
+  facePic = loadImage("stressed.jpg");
+  facePic.resize(100, 100);  // to match your size
+  
+  size(500, 500);
   catPic = loadImage("evil_cat.jpg");
   catPic.resize(500, 500);  // to match your size
+  
+  size(500, 500);
+  facePic = loadImage("stressed.jpg");
+  facePic.resize(100, 100);  // to match your size
+ 
   background(catPic);
+  //background(facePic);
   Minim minim = new Minim(this);        
   sound = minim.loadSample("explo.wav");
 }
@@ -52,11 +63,11 @@ void draw()
 void keyPressed()
 {
   noStroke();
-  xLoc1 = xLoc1 + acceleration; //xLoc1++
-  yLoc1 = yLoc1 + acceleration; //yLoc1++
+  xLoc1 = xLoc1 + -acceleration; //xLoc1++
+  yLoc1 = yLoc1 + -acceleration; //yLoc1++
 
-  xLoc2 =  xLoc2 + acceleration; //xLoc2++
-  yLoc2 = yLoc2 + acceleration; //yLoc2++
+  xLoc2 =  xLoc2 + -acceleration; //xLoc2++
+  yLoc2 = yLoc2 + -acceleration; //yLoc2++
   if (acceleration == 5)
   {
     sound.trigger();
